@@ -22,4 +22,5 @@
         s (fmap boom s/Any)]
      (is (thrown? clojure.lang.ExceptionInfo (s/validate s "anything")))))
 
-
+(deftest value-stays-the-same-for-later-schemas
+  (is (nil? (s/check (s/both starts-with-a s/Str) "armadillo"))))
